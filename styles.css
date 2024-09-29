@@ -1,0 +1,132 @@
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
+
+body{
+    background-color: black;
+    color:white;
+    
+    padding:30px;
+}
+
+
+
+
+h5{
+    font-size:1.4rem;
+}
+
+.input_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.name_box{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: none;
+}
+
+
+
+input {
+    width: 270px;
+    padding: 8px 12px;
+    background-color: black;
+    margin-top: 7px;
+    border: 1px solid white;
+    color: white;
+}
+
+.profession_box{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: none;
+}
+
+.age_box{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: none;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 50px;
+    
+    margin-left:12px;
+    gap:12px;
+    
+    
+}
+.btn {
+    
+    width: 100px;
+    padding: 8px 12px;
+    margin-top: 18px;
+
+}
+
+.error{
+    font-size: 1.2rem;
+    color:red;
+    
+}
+
+.added{
+    
+    font-size: 1.2rem;
+}
+
+.not-found{
+    width: 100%;
+    font-size: 1.2rem;
+    color: white;
+    margin-left:180px;
+}
+.list_container{
+    margin-top: 15px;
+}
+.list_box{
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 25px;
+  
+width:500px;
+}
+.paraContainer {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    border: 1px solid white;
+    border-radius: 22px;
+    margin-right:12px;
+    height: 52px;
+    align-items: center;
+
+}
+
+.list_box button {
+    width: 100px;
+    height: 40px;
+    margin-right: 12px;
+    border-radius: 22px;
+}
+.success{
+
+color: green;
+font-size: 1.2rem;
+}
