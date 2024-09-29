@@ -1,11 +1,14 @@
 let error = document.querySelector(".error");
 let not_found = document.querySelector(".not-found");
 let list = document.querySelector(".list_container");
-let success = document.querySelector(".success")
+let success = document.querySelector(".success");
+let employees = [];
+
 document.addEventListener("DOMContentLoaded", () => {
     error.style.display = "none";
-    success.style.display = "none"
-})
+    success.style.display = "none";
+    not_found.style.display = "none";
+});
 
 function addUser() {
     document.querySelector(".btn").addEventListener("click", () => {
@@ -14,42 +17,54 @@ function addUser() {
         let age = document.querySelector(".age");
 
         if (nam.value !== "" && profession.value !== "" && age.value !== "") {
-            list.innerHTML += `
-                <div class="list_box">
-<div class="paraContainer">
-    <p>${nam.value}</p>
-    <p>${profession.value}</p>
-    <p>${age.value}</p>
-</div>
+            const employee = {
+                name: nam.value,
+                profession: profession.value,
+                age: age.value
+            };
+            employees.push(employee);
+            renderEmployees();
 
-<button onclick="handleDelete(event)">Delete</button>
-</div>`
-           nam.value = ""
-           profession.value = ""
-           age.value = ""
+            nam.value = "";
+            profession.value = "";
+            age.value = "";
 
-   
-             error.style.display = "none";
-            success.style.display = "block"
-            not_found.style.display = "none"
-
+            error.style.display = "none";
+            success.style.display = "block";
+            not_found.style.display = "none";
         } else {
             error.style.display = "block";
-            success.style.display = "none"
+            success.style.display = "none";
         }
     });
 }
 
 function handleDelete(event) {
+    let element = event.target.parentElement;
+    let index = Array.from(element.parentElement.children).indexOf(element);
+    employees.splice(index, 1);
+    element.remove();
+    renderEmployees();
 
-    let element = event.target.parentElement
-    if(event.target.parentElement.parentElement.children.length === 1){
-       element.remove()
-        not_found.style.display = ""
-       
+    if (employees.length === 0) {
+        not_found.style.display = "block";
     }
-    else{element.remove()}
-     
- }
+}
+
+function renderEmployees() {
+    list.innerHTML = "";
+
+    employees.forEach((employee) => {
+        list.innerHTML += `
+            <div class="list_box">
+                <div class="paraContainer">
+                    <p>${employee.name}</p>
+                    <p>${employee.profession}</p>
+                    <p>${employee.age}</p>
+                </div>
+                <button onclick="handleDelete(event)">Delete</button>
+            </div>`;
+    });
+}
 
 addUser();
